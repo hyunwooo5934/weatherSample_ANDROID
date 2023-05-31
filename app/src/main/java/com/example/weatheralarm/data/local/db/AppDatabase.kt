@@ -1,8 +1,10 @@
-package com.example.weatheralarm.model
+package com.example.weatheralarm.data.local.db
 
 import android.content.Context
 import kotlinx.coroutines.CoroutineScope
 import androidx.room.*
+import com.example.weatheralarm.data.local.userDataDao
+import com.example.weatheralarm.data.model.userData
 
 
 @Database(entities = [userData::class], version = 1, exportSchema = false)

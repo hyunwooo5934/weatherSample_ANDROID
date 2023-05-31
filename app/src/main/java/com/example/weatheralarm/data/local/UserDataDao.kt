@@ -1,8 +1,10 @@
-package com.example.weatheralarm.model
+package com.example.weatheralarm.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.weatheralarm.data.model.userData
 
+@Dao
 interface userDataDao {
 
     // 데이터 베이스 불러오기
@@ -21,7 +23,7 @@ interface userDataDao {
     @Update
     fun update(entity: userData);
 
-    // 데이터 삭제
+    // db 삭제
     @Delete
     fun delete(entity: userData);
 

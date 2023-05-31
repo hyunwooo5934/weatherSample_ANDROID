@@ -1,6 +1,8 @@
-package com.example.weatheralarm.model
+package com.example.weatheralarm.repository
 
 import androidx.lifecycle.LiveData
+import com.example.weatheralarm.data.local.db.AppDatabase
+import com.example.weatheralarm.data.model.userData
 
 class Repository(mDatabase: AppDatabase) {
 
