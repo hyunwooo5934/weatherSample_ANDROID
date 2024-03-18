@@ -10,7 +10,7 @@ data class WeatherData(
     )
 
     data class Header(
-        val resultCode: Int,
+        val resultCode: String,
         val resultMsg: String
     )
 

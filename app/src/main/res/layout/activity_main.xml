@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -8,6 +9,11 @@
         <variable
             name="mainViewModel"
             type="com.example.weatheralarm.ui.MainViewModel" />
+
+        <variable
+            name="errYn"
+            type="java.lang.Boolean" />
+
     </data>
 
 
@@ -18,11 +24,15 @@
 
 
         <TextView
-            android:id="@+id/textView"
+            app:visible="@{!errYn}"
+            tools:visibility="visible"
+            android:id="@+id/temp_text"
             android:layout_width="103dp"
             android:layout_height="57dp"
             android:gravity="center"
-            android:text="TextView"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_200"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.662"
@@ -30,29 +40,51 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.176" />
 
-        <ImageView
-            android:id="@+id/imageView"
+<!--        <ImageView-->
+<!--            app:visible="@{!errYn}"-->
+<!--            tools:visibility="visible"-->
+<!--            android:id="@+id/tempImg"-->
+<!--            android:layout_width="95dp"-->
+<!--            android:layout_height="56dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/temp_text"-->
+<!--            app:layout_constraintHorizontal_bias="0.853"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.177" />-->
+
+
+        <TextView
+            app:visible="@{!errYn}"
+            tools:visibility="visible"
+            android:id="@+id/text"
             android:layout_width="95dp"
             android:layout_height="56dp"
+            android:text="현재 기온은"
+            android:gravity="center"
+            android:textSize="17dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/temp_text"
             app:layout_constraintHorizontal_bias="0.853"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.177"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintVertical_bias="0.177" />
 
         <TextView
-            android:id="@+id/textView2"
+            app:visible="@{errYn}"
+            tools:visibility="gone"
+            android:id="@+id/err_msg"
             android:layout_width="214dp"
             android:layout_height="413dp"
-            android:text="@{mainViewModel.weatherData}"
+            android:text="@{mainViewModel.weatherData.toString()}"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.472"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.616" />
+            app:layout_constraintVertical_bias="0.5" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
